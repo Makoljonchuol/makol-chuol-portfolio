@@ -1,0 +1,170 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import banner from "../assets/voices-of-amani/photo3.jpg";
+import training from "../assets/voices-of-amani/photo1.jpg";
+import group from "../assets/voices-of-amani/photo4.jpg";
+
+const stats = [
+  { value: "12", label: "teachers trained (target was 10)" },
+  { value: "960+", label: "students reached (target was 300)" },
+  { value: "$10,000", label: "grant, fully accounted for" },
+];
+
+const quotes = [
+  {
+    text: "I will no longer watch conflict escalate without intervening.",
+    attribution: "Ajak Deng, teacher, Cush Primary School",
+  },
+  {
+    text: "A teacher's influence moves outward like a stone's ripple.",
+    attribution: "John Alaak, veteran teacher, on replacing fear-based authority with dialogue",
+  },
+];
+---
+
+<Layout
+  title="Impact"
+  description="Community work in Kakuma Refugee Camp, Kenya: Voices of Amani peace education and Stories of Hope, an ongoing home and mentorship for unaccompanied children."
+>
+  <section class="mx-auto max-w-5xl px-6 pt-14 pb-6 sm:px-8 sm:pt-20">
+    <p class="text-sm font-medium tracking-wide text-accent uppercase" data-reveal>
+      Community Impact
+    </p>
+    <h1 class="mt-3 font-serif text-3xl text-ink sm:text-4xl" data-reveal>
+      Peace isn't delivered from outside. It's recognized.
+    </h1>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft" data-reveal>
+      I grew up in Kakuma Refugee Camp. Since 2021 I've worked to make
+      education and mentorship reach further there, through the teachers
+      who shape a generation, and directly, in a home I started for children
+      who had nowhere else to go.
+    </p>
+  </section>
+
+  <!-- Voices of Amani -->
+  <section class="mx-auto max-w-5xl px-6 py-10 sm:px-8">
+    <figure data-reveal>
+      <div class="overflow-hidden rounded-2xl border border-line">
+        <Image
+          src={banner}
+          alt="Facilitators Bona Boll and Santino Makuach shaking hands beside the Voices of Amani Peace Champion banner"
+          width={1200}
+          class="h-72 w-full object-cover object-[50%_30%] sm:h-96"
+        />
+      </div>
+      <figcaption class="mt-2 text-xs text-muted">
+        Facilitators Bona Boll and Santino Makuach share a two-finger sign of
+        peace beside the Voices of Amani banner.
+      </figcaption>
+    </figure>
+
+    <div class="mt-8" data-reveal>
+      <p class="text-xs font-medium tracking-wide text-accent uppercase">
+        Voices of Amani &middot; Davis Projects for Peace, 2026
+      </p>
+      <h2 class="mt-2 font-serif text-2xl text-ink">
+        Training teachers to be the ripple.
+      </h2>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+        I taught in Kakuma from 2020 to 2023 and watched displacement and
+        trauma surface as tension in the classroom. In summer 2024, conflict
+        between two communities in the camp killed more than a dozen
+        teenagers. That's when I decided to act, not by teaching students
+        directly, but by training the teachers they already trust. One
+        teacher's influence reaches an entire classroom, and then the next.
+      </p>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+        In July 2026, in partnership with BITT (Be Informed to Transform and
+        Transcend), we ran a five-day training in Kakuma. Twelve teachers
+        became "Peace Champions." Students have since started forming
+        cross-tribal study groups on their own, and the teachers are now
+        launching student-led Peace Clubs, seeded with $500 from the grant.
+      </p>
+    </div>
+
+    <div class="mt-8 grid grid-cols-3 gap-4 sm:gap-6" data-reveal>
+      {
+        stats.map((s) => (
+          <div class="rounded-xl border border-line p-4 text-center sm:p-6">
+            <p class="font-serif text-2xl text-accent sm:text-3xl">{s.value}</p>
+            <p class="mt-1 text-xs text-muted sm:text-sm">{s.label}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2" data-reveal>
+      {
+        quotes.map((q) => (
+          <blockquote class="rounded-2xl border border-line p-6">
+            <p class="font-serif text-lg leading-snug text-ink italic">
+              &ldquo;{q.text}&rdquo;
+            </p>
+            <cite class="mt-3 block text-sm text-muted not-italic">
+              {q.attribution}
+            </cite>
+          </blockquote>
+        ))
+      }
+    </div>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2" data-reveal>
+      <figure>
+        <Image
+          src={training}
+          alt="Teachers in group discussion during the Voices of Amani training"
+          width={800}
+          height={600}
+          class="h-64 w-full rounded-2xl border border-line object-cover"
+        />
+        <figcaption class="mt-2 text-xs text-muted">
+          Teachers in group discussion on the questions they were assigned.
+        </figcaption>
+      </figure>
+      <figure>
+        <Image
+          src={group}
+          alt="The full cohort of trained teachers outside the training center"
+          width={800}
+          height={600}
+          class="h-64 w-full rounded-2xl border border-line object-cover"
+        />
+        <figcaption class="mt-2 text-xs text-muted">
+          The trained cohort of Peace Champions outside the training center.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Stories of Hope -->
+  <section class="mx-auto max-w-5xl px-6 py-14 sm:px-8">
+    <div class="border-t border-line pt-14" data-reveal>
+      <p class="text-xs font-medium tracking-wide text-accent uppercase">
+        Stories of Hope &middot; Since 2021
+      </p>
+      <h2 class="mt-2 font-serif text-2xl text-ink">
+        It started with three boys and a two-room house.
+      </h2>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+        While teaching in Kakuma, I met children who had arrived at the camp
+        unaccompanied, with no parents and no stable place to live. In 2021 I built
+        a small house, funded by my own teaching income, and took in three
+        of them. Every evening, two hours of lessons and reading practice.
+        Weekends spent making sure they had food and support most kids take
+        for granted.
+      </p>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+        That house is now home to over a dozen students. I still support
+        them from the U.S.: academics, mentorship, and the basics. My own
+        tutor once told me: "whatever you learn, teach two other people."
+        That's the whole idea behind this project.
+      </p>
+      <div
+        class="mt-8 flex h-48 items-center justify-center rounded-2xl border border-dashed border-line text-sm text-muted"
+      >
+        Photos from Stories of Hope, coming soon
+      </div>
+    </div>
+  </section>
+</Layout>

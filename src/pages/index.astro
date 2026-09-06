@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { withBase } from "../lib/base";
+import headshot from "../assets/headshots/headshot-2.jpg";
+
+const snapshots = [
+  {
+    href: "/work",
+    kicker: "MacroFab · Software Development Intern",
+    body: "Shipped 100+ pull requests across authentication, infrastructure, and security, including production auth work with Temporal and Keycloak.",
+  },
+  {
+    href: "/impact",
+    kicker: "Voices of Amani · Davis Projects for Peace",
+    body: "Trained 12 teachers as peace educators in Kakuma Refugee Camp. Together they've reached 960+ students, well past the original goal.",
+  },
+  {
+    href: "/impact",
+    kicker: "Stories of Hope · Since 2021",
+    body: "Built a home for three unaccompanied refugee children, funded by my own teaching income. It now supports 16 students.",
+  },
+];
+---
+
+<Layout
+  title="Home"
+  description="Makol J. Chuol: software engineer and community builder. Technical work at MacroFab, peace education and youth support in Kakuma Refugee Camp, Kenya."
+>
+  <section class="mx-auto max-w-5xl px-6 pt-16 pb-20 sm:px-8 sm:pt-24 sm:pb-28">
+    <div class="grid items-center gap-12 sm:grid-cols-[1fr_auto] sm:gap-16">
+      <div data-reveal>
+        <p class="mb-4 text-sm font-medium tracking-wide text-accent uppercase">
+          Software Engineer &amp; Community Builder
+        </p>
+        <h1 class="font-serif text-4xl leading-tight text-ink sm:text-5xl">
+          Makol J. Chuol
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
+          I build secure software at MacroFab, and I build peace and
+          opportunity for refugee communities in Kakuma, Kenya, where I grew
+          up. Whether the system is a codebase or a classroom, I look for the
+          smallest change that ripples the furthest.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href={withBase("/work")}
+            class="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-accent"
+          >
+            See my work
+          </a>
+          <a
+            href={withBase("/impact")}
+            class="rounded-full border border-line px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-accent hover:text-accent"
+          >
+            See the impact
+          </a>
+        </div>
+      </div>
+      <div class="justify-self-center sm:justify-self-end" data-reveal>
+        <Image
+          src={headshot}
+          alt="Portrait of Makol J. Chuol"
+          width={320}
+          height={400}
+          class="h-64 w-52 rounded-2xl object-cover shadow-sm sm:h-80 sm:w-64"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-white/40">
+    <div class="mx-auto max-w-5xl px-6 py-16 sm:px-8">
+      <div class="grid gap-6 sm:grid-cols-3">
+        {
+          snapshots.map((item) => (
+            <a
+              href={withBase(item.href)}
+              class="group rounded-2xl border border-line p-6 transition-colors hover:border-accent"
+              data-reveal
+            >
+              <p class="text-xs font-medium tracking-wide text-accent uppercase">
+                {item.kicker}
+              </p>
+              <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+                {item.body}
+              </p>
+              <span class="mt-4 inline-block text-sm font-medium text-ink group-hover:text-accent">
+                Read more &rarr;
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 py-16 sm:px-8">
+    <div class="border-t border-line pt-10" data-reveal>
+      <p class="font-serif text-xl leading-relaxed text-ink-soft italic sm:text-2xl">
+        &ldquo;Peace is being heard, seen, and appreciated for who you are,
+        with a sense of home and no judgment.&rdquo;
+      </p>
+      <p class="mt-4 text-sm text-muted">
+        Currently a senior at Macalester College: B.A. Computer Science,
+        minor in Educational Studies. Graduating May 2027.
+        <a href={withBase("/about")} class="text-ink underline underline-offset-4 hover:text-accent"
+          >More about me &rarr;</a
+        >
+      </p>
+    </div>
+  </section>
+</Layout>

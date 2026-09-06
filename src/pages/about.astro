@@ -1,0 +1,103 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import headshot from "../assets/headshots/headshot-1.jpg";
+
+const honors = [
+  "Kofi Annan Scholar",
+  "Dean's List",
+  "Fleming First-Generation Scholar",
+  "Full-Ride Scholarship",
+];
+---
+
+<Layout
+  title="About"
+  description="About Makol J. Chuol: from Kakuma Refugee Camp to Macalester College, and why engineering and community work come from the same place."
+>
+  <section class="mx-auto max-w-5xl px-6 pt-14 pb-16 sm:px-8 sm:pt-20">
+    <div class="grid gap-10 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-14">
+      <Image
+        src={headshot}
+        alt="Portrait of Makol J. Chuol"
+        width={280}
+        height={340}
+        class="h-56 w-44 rounded-2xl object-cover shadow-sm sm:h-72 sm:w-56"
+        data-reveal
+      />
+
+      <div data-reveal>
+        <p class="text-sm font-medium tracking-wide text-accent uppercase">
+          About
+        </p>
+        <h1 class="mt-3 font-serif text-3xl text-ink sm:text-4xl">
+          Two threads, one way of working.
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink-soft">
+          I'm a builder first. Give me a system I don't understand, whether
+          it's a codebase, a curriculum, or a classroom, and I'll spend more
+          time reading it than touching it, because the fix that actually
+          holds is never obvious until the read is done. Curiosity is the
+          real skill. Code, mentorship, and training programs are just where
+          it shows up.
+        </p>
+        <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+          I'm a senior at Macalester College studying computer science,
+          graduating May 2027. My path into tech ran sideways before it ran
+          straight: years teaching in Kakuma, Kenya taught me to build things
+          people actually need before I learned to build things that simply
+          work. Elimisha Kakuma, a program founded by former refugees who'd
+          studied in the U.S., is what eventually opened the door to
+          Macalester itself.
+        </p>
+        <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+          Outside of work, I write. My grandmother's stories, the ones
+          where she taught me to read the stars for weather and warning,
+          are where I first learned to pay attention. Those lessons taught
+          me patience and curiosity long before any classroom did, and
+          that instinct still shapes how I build.
+        </p>
+        <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+          I publish some of it on{" "}
+          <a
+            href="https://mjc412.substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-ink underline underline-offset-4 hover:text-accent"
+            >Substack</a
+          >, under mjc@412.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 py-10 sm:px-8">
+    <div class="border-t border-line pt-10" data-reveal>
+      <h2 class="font-serif text-lg text-ink">Education</h2>
+      <p class="mt-3 text-base text-ink-soft">
+        Macalester College: B.A. Computer Science, minor in Educational
+        Studies. Expected May 2027.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {
+          honors.map((h) => (
+            <span class="rounded-full border border-line px-3 py-1 text-xs text-ink-soft">
+              {h}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 pt-4 pb-16 sm:px-8">
+    <div class="border-t border-line pt-10" data-reveal>
+      <p class="font-serif text-xl leading-relaxed text-ink-soft italic sm:text-2xl">
+        &ldquo;Peace is not something we deliver from outside a community;
+        it's something we help a community recognize it already knows how
+        to build.&rdquo;
+      </p>
+    </div>
+  </section>
+</Layout>

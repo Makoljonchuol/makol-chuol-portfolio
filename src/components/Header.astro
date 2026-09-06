@@ -1,0 +1,44 @@
+---
+import { withBase } from "../lib/base";
+
+const navItems = [
+  { href: "/work", label: "Work" },
+  { href: "/impact", label: "Impact" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b border-line">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5 sm:px-8">
+    <a
+      href={withBase("/")}
+      class="font-serif text-lg font-medium tracking-tight text-ink hover:text-accent transition-colors"
+    >
+      Makol J. Chuol
+    </a>
+    <nav class="flex items-center gap-6">
+      {
+        navItems.map((item) => {
+          const target = withBase(item.href);
+          const isActive =
+            currentPath === target || currentPath.startsWith(target + "/");
+          return (
+            <a
+              href={target}
+              class={`text-sm transition-colors ${
+                isActive
+                  ? "text-accent font-medium"
+                  : "text-ink-soft hover:text-accent"
+              }`}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+  </div>
+</header>

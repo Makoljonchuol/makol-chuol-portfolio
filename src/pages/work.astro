@@ -1,0 +1,162 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { withBase } from "../lib/base";
+
+const roles = [
+  {
+    org: "MacroFab",
+    role: "Software Development Intern",
+    place: "Houston, TX",
+    dates: "Jun to Aug 2026",
+    intro:
+      "Ten weeks in production-critical authentication and infrastructure work, not sandboxed intern tasks. Ranked top 3 of all contributors for the internship period.",
+    bullets: [
+      "Migrated 22 Python microservices to Gunicorn --preload, with post-fork connection-pool resets validated by Locust load testing.",
+      "Upgraded Keycloak 24 → 26.2 on a live ECS deployment and shipped the Temporal OAuth2/JWT flow now headed to production.",
+      "Built an automated PR-review agent (migrated from OpenAI to Anthropic) that caught a bug before it caused a second production incident.",
+      "Delivered 100+ pull requests and closed 75 JIRA issues across auth, infrastructure, and security workstreams.",
+    ],
+  },
+  {
+    org: "CrossRealms International",
+    role: "Cybersecurity Engineering & Developer Intern",
+    place: "Chicago, IL",
+    dates: "May 2025 to May 2026",
+    intro:
+      "Two internships focused on detection: building the pipelines and automation that catch threats before they land.",
+    bullets: [
+      "Built scalable telemetry pipelines to detect anomalous activity across cloud and network environments.",
+      "Deployed AI-assisted detection across Azure to classify human, bot, and automated attacks.",
+      "Automated honeypot deployment across 5 data centers via Terraform, cutting setup time to under 10 minutes.",
+      "Analyzed 278,000+ real-world attacks to generate threat intelligence for detection and response.",
+    ],
+  },
+  {
+    org: "Kakuma EduExplorers (Kakuma Tech Hub)",
+    role: "Founder & Curriculum Developer",
+    place: "Kakuma Refugee Camp, Kenya",
+    dates: "Founded 2024",
+    intro:
+      "94% of secondary-age children in Kakuma are out of school, and less than 1% reach tertiary education. With co-founder Shakthi Palraj, I built a self-directed learning hub to change those odds: computers, Wi-Fi, and a curriculum designed for it.",
+    bullets: [
+      "Designed a “How to Learn” curriculum combining cloud computing and AI to foster self-directed education.",
+      "Built partnerships with UNHCR, the Lutheran World Federation, Amala, Elimisha Kakuma, and Rotary to secure a space with Wi-Fi and computers.",
+      "Scaled to 80 students across four weekly batches from 100+ initial sign-ups, tailoring the program for high school graduates, current students, primary schoolers, and college applicants alike.",
+      "Taught Carol Dweck's growth mindset framework alongside technical skills, and kept the program running through solar-power outages and constrained resources.",
+    ],
+  },
+];
+
+const skills = [
+  "Python",
+  "Java",
+  "C/C++",
+  "TypeScript",
+  "Swift",
+  "AWS",
+  "Terraform",
+  "GCP",
+  "Azure",
+  "Docker",
+  "Kubernetes",
+  "Keycloak",
+  "Temporal",
+  "OAuth2/OIDC",
+  "SIEM / ELK",
+  "NIST CSF",
+];
+---
+
+<Layout
+  title="Work"
+  description="Software engineering and cybersecurity work at MacroFab, CrossRealms International, and the ed-tech hub I founded in Kakuma Refugee Camp."
+>
+  <section class="mx-auto max-w-5xl px-6 pt-14 pb-6 sm:px-8 sm:pt-20">
+    <p class="text-sm font-medium tracking-wide text-accent uppercase" data-reveal>
+      Work
+    </p>
+    <h1 class="mt-3 font-serif text-3xl text-ink sm:text-4xl" data-reveal>
+      I look for the smallest change that carries the most weight.
+    </h1>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft" data-reveal>
+      One Gunicorn setting, changed carefully, kept 22 services steady. One
+      review agent caught a bug a person missed. Small moves. Real
+      consequences.
+    </p>
+    <a
+      href={withBase("/Makol-Chuol-Resume.pdf")}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-6 inline-block text-sm font-medium text-ink underline underline-offset-4 hover:text-accent"
+      data-reveal
+    >
+      Download my resume &rarr;
+    </a>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 py-10 sm:px-8">
+    <div class="flex flex-col gap-10">
+      {
+        roles.map((r) => (
+          <article class="rounded-2xl border border-line p-7 sm:p-9" data-reveal>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h2 class="font-serif text-xl text-ink sm:text-2xl">{r.org}</h2>
+              <span class="text-sm text-muted">{r.dates}</span>
+            </div>
+            <p class="mt-1 text-sm text-muted">
+              {r.role} &middot; {r.place}
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-ink-soft">{r.intro}</p>
+            <ul class="mt-5 space-y-2.5">
+              {r.bullets.map((b) => (
+                <li class="flex gap-3 text-sm leading-relaxed text-ink-soft">
+                  <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 py-10 sm:px-8">
+    <div class="border-t border-line pt-10" data-reveal>
+      <h2 class="font-serif text-lg text-ink">Also</h2>
+      <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+        1st place, Macathon 2024: led a 5-person team building an
+        energy-generating soccer ball for off-grid refugee schools.
+        Preceptor for Software Design &amp; Development (COMP 225) at
+        Macalester, mentoring 35+ students on secure full-stack development.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 pt-4 pb-10 sm:px-8">
+    <div class="border-t border-line pt-10" data-reveal>
+      <h2 class="font-serif text-lg text-ink">Tools &amp; technologies</h2>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {
+          skills.map((s) => (
+            <span class="rounded-full border border-line px-3 py-1 text-xs text-ink-soft">
+              {s}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 pt-4 pb-16 sm:px-8">
+    <div class="border-t border-line pt-10" data-reveal>
+      <p class="font-serif text-xl leading-relaxed text-ink-soft italic sm:text-2xl">
+        &ldquo;Entrepreneurship, to me, means being a creator of
+        opportunities, especially in challenging situations, to empower
+        others to succeed. It's not just about making money, but about
+        opening doors for others, even if it means stepping out of your own
+        comfort zone.&rdquo;
+      </p>
+    </div>
+  </section>
+</Layout>
