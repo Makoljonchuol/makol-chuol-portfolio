@@ -11,9 +11,10 @@ const roles = [
     intro:
       "Ten weeks in production-critical authentication and infrastructure work, not sandboxed intern tasks. Ranked top 3 of all contributors for the internship period.",
     bullets: [
-      "Migrated 22 Python microservices to Gunicorn --preload, with post-fork connection-pool resets validated by Locust load testing.",
-      "Upgraded Keycloak 24 → 26.2 on a live ECS deployment and shipped the Temporal OAuth2/JWT flow now headed to production.",
-      "Built an automated PR-review agent (migrated from OpenAI to Anthropic) that caught a bug before it caused a second production incident.",
+      "Enabled Gunicorn --preload across 20+ Python microservices, with post-fork resets for MySQL, SQLAlchemy, and boto3 connections; Locust benchmarks showed up to 22% higher throughput.",
+      "Built OAuth2/JWT authentication for Temporal with Keycloak: upgraded Keycloak 24 → 26.2, wrote Terraform for a high-availability cluster on ECS Fargate, and added client-credentials auth to the shared Python library.",
+      "Rebuilt the PR-review GitHub Action around Pi, a tool-using coding agent (Gemini on Vertex AI), with RAG retrieval via Lambda and Qdrant. Adopted team-wide, it flagged a production-breaking bug before merge.",
+      "Replaced long-lived AWS keys with GitHub OIDC federation for Dependabot (Terraform/IAM).",
       "Delivered 100+ pull requests and closed 75 JIRA issues across auth, infrastructure, and security workstreams.",
     ],
   },
@@ -79,8 +80,8 @@ const skills = [
       I look for the smallest change that carries the most weight.
     </h1>
     <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft" data-reveal>
-      One Gunicorn setting, changed carefully, kept 22 services steady. One
-      review agent caught a bug a person missed. Small moves. Real
+      One Gunicorn setting, changed carefully across 20+ services. One
+      review agent that flagged a bug a person missed. Small moves. Real
       consequences.
     </p>
     <a
